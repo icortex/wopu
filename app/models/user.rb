@@ -1,7 +1,7 @@
 class User
   include Mongoid::Document
   include Mongoid::Timestamps
-  include User::DeviseStuff
+  include DeviseStuff
 
   field :name, type: String
   field :email, type: String
