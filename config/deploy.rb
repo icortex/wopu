@@ -52,7 +52,7 @@ ssh_options[:keys] = ["~/.ssh/wopu-aws.pem"]
 
 # SCM Options
 set :scm,        :git
-set :repository, "git@github.com:wopu/#{GITHUB_REPOSITORY_NAME}.git"
+set :repository, "git@github.com:icortex/#{GITHUB_REPOSITORY_NAME}.git"
 set :branch,     "master"
 
 # Roles
@@ -72,4 +72,3 @@ end
 #after 'deploy:restart', 'unicorn:reload'    # app IS NOT preloaded
 #after 'deploy:restart', 'unicorn:restart'   # app preloaded
 after 'deploy:restart', 'unicorn:duplicate' # before_fork hook implemented (zero downtime deployments)
-
