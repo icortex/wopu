@@ -1,4 +1,5 @@
 ENV["RAILS_ENV"] ||= 'test'
+
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun' unless defined? Zeus
@@ -11,11 +12,7 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 RSpec.configure do |config|
   # ## Mock Framework
   #
-  # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
-  #
-  # config.mock_with :mocha
-  # config.mock_with :flexmock
-  # config.mock_with :rr
+  config.mock_with :rspec
 
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
@@ -29,7 +26,8 @@ RSpec.configure do |config|
   config.order = "random"
 
   config.include Capybara::DSL
-  # to use :js instead of :js => true in a test.
+  Capybara.javascript_driver = :webkit
+  
   config.treat_symbols_as_metadata_keys_with_true_values = true
 
   # Clean up all collections before each spec runs.

@@ -25,7 +25,6 @@ group :development, :test do
   gem 'rspec-rails'
 	gem 'mongoid-rspec'
   gem 'factory_girl_rails'
-  gem 'database_cleaner'
   gem 'capybara'
   gem 'capybara-webkit', '~> 0.12.0'
   gem 'launchy'
