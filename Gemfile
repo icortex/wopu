@@ -45,5 +45,6 @@ gem "active_decorator"
 gem "devise"
 gem "unicorn"
 gem 'fog'
+gem 'unf'
 gem 'global'
 gem 'dotenv-rails'
