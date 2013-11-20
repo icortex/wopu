@@ -1,0 +1,12 @@
+h1 Available Donations
+- if current_user
+  = link_to 'New Donation', new_donation_path, class: 'btn btn-primary'
+
+
+.alert.alert-info
+  | Heroes can suggest donations! Coming soon...
+
+- @available_donations.each do |donation|
+  = donation.helper.try(:name)
+  = donation.description
+  = link_to 'Request this donation', '#'

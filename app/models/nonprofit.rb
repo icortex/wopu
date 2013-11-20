@@ -19,7 +19,7 @@ class Nonprofit
   belongs_to :category
   belongs_to :user
   has_many :needs
-  has_many :helps, as: :helper
+  has_many :donations, as: :helper
   has_many :tags, as: :taggeable
 
   accepts_nested_attributes_for :contact_info

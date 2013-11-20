@@ -12,7 +12,7 @@ class Need
    #has_many :pictures
 
   belongs_to :nonprofit
-  has_many :helps
+  has_many :donations
   has_many :tags, as: :taggeable
   has_one :result
 

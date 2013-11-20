@@ -9,23 +9,23 @@ h1= @user.name
 
     h2
       span.glyphicon.glyphicon-heart
-      = "#{@user.helps.count} Donations"
-    - @user.helps.in_groups_of(2).each do |helps_subgroup|
+      = "#{@user.donations.count} Donations"
+    - @user.donations.in_groups_of(2).each do |donations_subgroup|
       .row
-        - helps_subgroup.each do |help|
-          - if help
+        - donations_subgroup.each do |donation|
+          - if donation
             .col-md-6
               div
-                = image_tag help.need.nonprofit.logo.thumb, class: 'centered'
+                = image_tag donation.need.nonprofit.logo.thumb, class: 'centered'
               div
                 strong Nonprofit
                 | &emsp;
-                = link_to help.need.nonprofit.name, help.need.nonprofit
+                = link_to donation.need.nonprofit.name, donation.need.nonprofit
               div
                 strong Need:
                 | &emsp;
-                = help.need.title
+                = donation.need.title
               div
                 strong Donation:
                 | &emsp;
-                = help.description
+                = donation.description

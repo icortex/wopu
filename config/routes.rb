@@ -13,9 +13,9 @@ Wopu::Application.routes.draw do
 
   resources :tags
 
-  resources :helps do
-    post 'accept' => 'helps#accept'
-    post 'reject' => 'helps#reject'
+  resources :donations do
+    post 'accept' => 'donations#accept'
+    post 'reject' => 'donations#reject'
   end
 
   resources :users

@@ -1,7 +1,7 @@
-.modal.fade id="helpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+.modal.fade id="donationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
   .modal-dialog
     .modal-content
-      = form_for :help, url: helps_path, method: :post do |f|
+      = form_for :donation, url: donations_path, method: :post do |f|
         .modal-header
           button.close aria-hidden="true" data-dismiss="modal" type="button"
           h3.modal-title Let's do it Hero

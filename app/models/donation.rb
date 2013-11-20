@@ -1,4 +1,4 @@
-class Help
+class Donation
   include Mongoid::Document
   include Mongoid::Timestamps
 

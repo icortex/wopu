@@ -9,7 +9,7 @@ class User
 
   mount_uploader :avatar, ImageUploader
 
-  has_many :helps, as: :helper
+  has_many :donations, as: :helper
   has_many :nonprofits
 
   validates_presence_of :email, :password
