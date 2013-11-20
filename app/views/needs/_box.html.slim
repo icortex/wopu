@@ -30,7 +30,7 @@
       br
       = help.description
       br
-      - if can_manage? @foundation
+      - if can_manage? @nonprofit
         .pull-right
           = mail_to help.helper.email, 'Contact hero'
         = link_to 'Accept', help_accept_path(help), class: 'btn btn-primary btn-xs', method: :post
@@ -39,7 +39,7 @@
 
     = link_to 'Donate', '#helpModal', class: "btn btn-primary", 'data-need' => need.id,
       'data-toggle' => "modal", 'data-selector' => 'need-btn'
-    - if can_manage? @foundation
+    - if can_manage? @nonprofit
       = link_to 'Mark solved', '#resultModal', 'data-need' => need.id,
         'data-toggle' => "modal", 'data-selector' => 'need-btn',
         class: 'btn btn-success'

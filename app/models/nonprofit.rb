@@ -1,4 +1,4 @@
-class Foundation
+class Nonprofit
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Attributes::Dynamic
@@ -35,7 +35,7 @@ class Foundation
 
   scope :others, ->(user){ user ? ne(user_id: user.id) : all }
 
-  # Show selected tags when editing foundation
+  # Show selected tags when editing nonprofit
   def set_available_tag_ids
     self.available_tag_ids = tags.map &:available_tag_id
   end

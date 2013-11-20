@@ -7,5 +7,5 @@ class ContactInfo
   field :address
   field :representative
 
-  embedded_in :foundation
+  embedded_in :nonprofit
 end

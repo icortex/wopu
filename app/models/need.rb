@@ -11,7 +11,7 @@ class Need
    # See what happened after the need was marked as close? Show results?
    #has_many :pictures
 
-  belongs_to :foundation
+  belongs_to :nonprofit
   has_many :helps
   has_many :tags, as: :taggeable
   has_one :result

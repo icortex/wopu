@@ -1,0 +1,26 @@
+- title ||= 'Nonprofits'
+h1 = title
+
+- nonprofits.in_groups_of(2) do |nonprofit_subgroup|
+  .row
+    - nonprofit_subgroup.each do |nonprofit|
+      - if nonprofit
+        .col-md-6.nonprofit-box
+          .col-md-3
+            = image_tag nonprofit.logo.thumb
+            span.glyphicon.glyphicon-globe
+            = "#{nonprofit.city}, #{nonprofit.country}"
+          .col-md-9
+            h3
+              = link_to nonprofit.name, nonprofit
+              .pull-right
+                = certified? nonprofit
+            span.label.label-primary
+              = nonprofit.category.name
+            br
+            br
+            span.glyphicon.glyphicon-heart
+            = nonprofit.mission
+            br
+            span.glyphicon.glyphicon-user
+            = nonprofit.population

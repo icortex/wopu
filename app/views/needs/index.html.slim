@@ -1,6 +1,6 @@
 h1
   | My needs
-= link_to new_foundation_need_path(@foundation), class: 'btn btn-primary', style: 'margin-top: 15px' do
+= link_to new_nonprofit_need_path(@nonprofit), class: 'btn btn-primary', style: 'margin-top: 15px' do
   span.glyphicon.glyphicon-plus
   | New Need
 
@@ -16,7 +16,7 @@ table
     th
     th
 
-  - @foundation.needs.each do |need|
+  - @nonprofit.needs.each do |need|
     tr
       td = need.open ? 'Open' : 'Close'
       td = need.title
@@ -24,6 +24,6 @@ table
       td = need.description
       td = need.beneficiary
       td = need.deadline
-      td = link_to 'Show', foundation_need_path(@foundation, need)
-      td = link_to 'Edit', edit_foundation_need_path(@foundation, need)
-      td = link_to 'Destroy', foundation_need_path(@foundation, need), :confirm => 'Are you sure?', :method => :delete
+      td = link_to 'Show', nonprofit_need_path(@nonprofit, need)
+      td = link_to 'Edit', edit_nonprofit_need_path(@nonprofit, need)
+      td = link_to 'Destroy', nonprofit_need_path(@nonprofit, need), :confirm => 'Are you sure?', :method => :delete

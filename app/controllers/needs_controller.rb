@@ -2,15 +2,15 @@ class NeedsController < ApplicationController
   before_action :set_need, only: [:show, :edit, :update, :destroy]
 
   def index
-    @foundation = Foundation.find(params[:foundation_id])
+    @nonprofit = Nonprofit.find(params[:nonprofit_id])
   end
 
   def show
   end
 
   def new
-    foundation = Foundation.find(params[:foundation_id])
-    @need = foundation.needs.build
+    nonprofit = Nonprofit.find(params[:nonprofit_id])
+    @need = nonprofit.needs.build
   end
 
   def edit
@@ -18,10 +18,10 @@ class NeedsController < ApplicationController
 
   def create
     @need = Need.new(need_params)
-    @need.foundation = Foundation.find(params[:foundation_id])
+    @need.nonprofit = Nonprofit.find(params[:nonprofit_id])
 
     if @need.save
-      redirect_to @need.foundation, notice: 'Need was successfully created.'
+      redirect_to @need.nonprofit, notice: 'Need was successfully created.'
     else
       render action: 'new'
     end
@@ -29,24 +29,24 @@ class NeedsController < ApplicationController
 
   def update
     if @need.update(need_params)
-      redirect_to foundation_need_path(@need.foundation, @need), notice: 'Need was successfully updated.'
+      redirect_to nonprofit_need_path(@need.nonprofit, @need), notice: 'Need was successfully updated.'
     else
       render action: 'edit'
     end
   end
 
   def destroy
-    foundation = @need.foundation
+    nonprofit = @need.nonprofit
     @need.destroy
 
-    redirect_to foundation_needs_path(foundation)
+    redirect_to nonprofit_needs_path(nonprofit)
   end
 
   def mark_solved
     need = Need.find(params[:need_id])
     need.solve!
 
-    redirect_to foundation_path(need.foundation), notice: 'Great, your need was solved!'
+    redirect_to nonprofit_path(need.nonprofit), notice: 'Great, your need was solved!'
   end
 
   private

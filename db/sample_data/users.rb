@@ -8,20 +8,20 @@ puts "Creating users"
 end
 puts ''
 
-puts "Creating foundations, needs and helps"
+puts "Creating nonprofits, needs and helps"
 3.times do
-  foundation = Foundation.find_by(name: Faker::Company.name)
+  nonprofit = Nonprofit.find_by(name: Faker::Company.name)
 
-  unless foundation
-    foundation = Foundation.create(category: category, name: Faker::Company.name,
+  unless nonprofit
+    nonprofit = Nonprofit.create(category: category, name: Faker::Company.name,
       available_tag_ids: available_tag_ids, mission: Faker::Lorem.paragraph(3), population: '25 people with...',
       start_date: Date.today - 2.years, certified: [true, false].sample, country: Faker::Lorem.words(1)[0], city:  Faker::Lorem.word)
     print 'f'
   end
 
-  if foundation.needs.empty?
+  if nonprofit.needs.empty?
     3.times do |i|
-      need = foundation.needs.create description: Faker::Lorem.sentence,
+      need = nonprofit.needs.create description: Faker::Lorem.sentence,
         title: Faker::Lorem.words.join(' '), purpose: Faker::Lorem.sentence,
         beneficiary: Faker::Lorem.sentence, deadline: rand(10).days.from_now
       print 'n'

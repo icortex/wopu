@@ -1,21 +1,21 @@
 password = '123123'
 
-puts "Creating test user and foundations for this user"
+puts "Creating test user and nonprofits for this user"
 unless user = User.find_by(name: 'test')
   user = User.create(name: 'test', email: 'test@test.com', password: password)
   print '.'
 end
 
-if user.foundations.empty?
+if user.nonprofits.empty?
   3.times do
-    foundation = user.foundations.create category: category, name: Faker::Company.name,
+    nonprofit = user.nonprofits.create category: category, name: Faker::Company.name,
       available_tag_ids: available_tag_ids, mission: Faker::Lorem.paragraph(3), population: '25 people with...',
       start_date: Date.today - 2.years, certified: [true, false].sample, country: Faker::Lorem.words(1)[0], city:  Faker::Lorem.word
     print 'f'
 
-    if foundation.needs.empty?
+    if nonprofit.needs.empty?
       3.times do |i|
-        need = foundation.needs.create description: Faker::Lorem.sentence,
+        need = nonprofit.needs.create description: Faker::Lorem.sentence,
           title: Faker::Lorem.words.join(' '), purpose: Faker::Lorem.sentence,
           beneficiary: Faker::Lorem.sentence, deadline: rand(10).days.from_now
         print 'n'

@@ -1,4 +1,4 @@
-module FoundationDecorator
+module NonprofitDecorator
   def category_name
     category.try(:name)
   end

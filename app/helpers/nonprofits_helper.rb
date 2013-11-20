@@ -1,11 +1,11 @@
-module FoundationsHelper
+module NonprofitsHelper
 
-  def can_manage?(foundation)
-    foundation.user == current_user
+  def can_manage?(nonprofit)
+    nonprofit.user == current_user
   end
 
-  def certified?(foundation)
-    if foundation.certified
+  def certified?(nonprofit)
+    if nonprofit.certified
       content_tag(:span, nil, class: 'glyphicon glyphicon-check', title: 'Certified')
     else
       content_tag(:span, nil, class: 'glyphicon glyphicon-unchecked', title: 'Not certified')

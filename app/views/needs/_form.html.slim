@@ -1,5 +1,4 @@
-/= form_for @need, url: foundation_needs_path(@need.foundation, @need) do |f|
-= form_for [@need.foundation, @need] do |f|
+= form_for [@need.nonprofit, @need] do |f|
   = error_messages(@need)
 
   .form-group

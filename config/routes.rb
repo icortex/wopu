@@ -20,7 +20,7 @@ Wopu::Application.routes.draw do
 
   resources :users
 
-  resources :foundations do
+  resources :nonprofits do
     resources :needs do
       post 'mark_solved' => 'needs#mark_solved'
     end

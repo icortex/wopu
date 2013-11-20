@@ -3,6 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $('#foundation_form select#foundation_available_tag_ids').chosen()
+  $('#nonprofit_form select#nonprofit_available_tag_ids').chosen()
 
   $('.chosen-container ul').addClass 'form-control'

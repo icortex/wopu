@@ -49,15 +49,15 @@ class HelpsController < ApplicationController
     help = Help.find(params[:help_id])
     help.accept!
 
-    redirect_to foundation_path(help.need.foundation), notice: 'Great, the Hero will be notified to make the help effective'
+    redirect_to nonprofit_path(help.need.nonprofit), notice: 'Great, the Hero will be notified to make the help effective'
   end
 
   def reject
     help = Help.find(params[:help_id])
-    foundation = help.need.foundation
+    nonprofit = help.need.nonprofit
     help.reject!
 
-    redirect_to foundation_path(foundation), notice: ':('
+    redirect_to nonprofit_path(nonprofit), notice: ':('
   end
 
   private

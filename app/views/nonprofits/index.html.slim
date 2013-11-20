@@ -1,0 +1,21 @@
+- if current_user
+  = link_to new_nonprofit_path, class: 'btn btn-primary pull-right', style: 'margin-top: 15px' do
+    span.glyphicon.glyphicon-plus
+    | New Nonprofit
+  - if @my_nonprofits.any?
+    == render partial: 'index',
+      locals: { nonprofits: @my_nonprofits, title: 'My Nonprofits' }
+  - else
+    br
+    br
+    br
+    .alert.alert-warning.alert-dismissable
+      a.close data-dismiss="alert" ×
+      p
+        | You don't have any nonprofit registered,
+        |  help your cause by registering your nonprofit.
+  - if @others_nonprofits.any?
+    == render partial: 'index',
+      locals: { nonprofits: @others_nonprofits, title: 'Others Nonprofits' }
+- else
+  == render partial: 'index',locals: { nonprofits: @others_nonprofits }
